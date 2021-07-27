@@ -1,8 +1,14 @@
-import React from 'react';
+import { useContext, useState } from "react";
+import React  from 'react';
+import CategoriasProvider, { CategoriasContex } from "../context/CategoriasContex";
 
 const Formulario = () => {
+
+    const {categorias} = useContext(CategoriasContex);
+
     return (
         <form className = 'col-12'>
+    
             <fieldset className = 'text-center'>
                 <legend>Busca bebidas por Categoria o Ingrediente</legend>
             </fieldset>
@@ -22,6 +28,14 @@ const Formulario = () => {
                         name = 'categoria'
                     >
                         <option value = ''>--Selecciona Categoría--</option>
+                        { categorias.map((opcion,index)=>(
+                        
+                            <option
+                                key = {index}
+                                value = {opcion.strCategory}
+
+                            >{opcion.strCategory}</option>
+                        ))}
                     </select>
                 </div>
                 <div className = 'col-md-4'>
