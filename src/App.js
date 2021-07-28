@@ -1,20 +1,27 @@
 
 import Formulario from './components/Formulario';
 import Header from './components/Header';
+import ListaRecetas from './components/ListaRecetas';
 import './index.css';
-import CategoriasProvider from './context/CategoriasContex';
+
+import CategoriasProvider from './context/CategoriasContext';
+import RecetasProvider from './context/RecetasContext';
 
 function App() {
   return (
   
     <CategoriasProvider>
-      <Header/>
-      <div className = 'container mt-5'>
-        <div className = 'row'>
-          <Formulario/>
-        </div>
-      </div>
+      <RecetasProvider>
+        <Header/>
+        <div className = 'container mt-5'>
+          <div className = 'row'>
+            <Formulario/>
+          </div>
+            <ListaRecetas/>
+        </div>    
+      </RecetasProvider>
     </CategoriasProvider>
+    
     
   
   );
